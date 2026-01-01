@@ -1,1 +1,2 @@
-# php-app-backend
+# PHP + Neext.js app
+PHP + Neext.jsでのアプリケーション
