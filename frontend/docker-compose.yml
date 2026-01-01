@@ -1,0 +1,23 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./src:/app
+      - php-app-frontend-node-modules:/app/node_modules
+    networks:
+      - php-app-frontend-network
+    ports:
+      - "${EXPOSE_APP_PORT}:3000"
+    command: npm run dev
+
+networks:
+  php-app-frontend-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.35.0.0/24
+
+volumes:
+  php-app-frontend-node-modules:
